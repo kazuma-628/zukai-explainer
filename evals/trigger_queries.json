@@ -1,0 +1,18 @@
+[
+  {"query": "GitLabのCI/CDの仕組みを図解して", "should_trigger": true},
+  {"query": "上司に『ゼロトラストって何？』と聞かれた。ITに詳しくない人でもわかるように1枚で説明できるものがほしい", "should_trigger": true},
+  {"query": "来週の全社説明会で生成AIの社内ルールを話す。スライドに貼る、ぱっと見てわかる絵を作ってほしい", "should_trigger": true},
+  {"query": "APIってなに？を小学生にもわかるように絵で", "should_trigger": true},
+  {"query": "新人向けに、うちの受発注の流れ（受注→在庫確認→出荷→請求）を1枚の図にまとめたい", "should_trigger": true},
+  {"query": "クラウドとオンプレの違い、営業さん向けにイラストで比較して", "should_trigger": true},
+  {"query": "うちのエンジニアじゃない人たちにGitの『ブランチ』の考え方を伝えたい。何かいい方法ない？", "should_trigger": true},
+  {"query": "情シスの仕事を他部署に知ってもらうための手描き風の説明画像を作って", "should_trigger": true},
+  {"query": "sales_2026q3.csv の月別売上を棒グラフにして", "should_trigger": false},
+  {"query": "この提案書の内容で10枚くらいのスライドを作って", "should_trigger": false},
+  {"query": "このシステムのシーケンス図をmermaidで書いて", "should_trigger": false},
+  {"query": "AWSのVPC構成図をネットワークエンジニア向けに正確に描きたい", "should_trigger": false},
+  {"query": "CI/CDとは何か、文章で300字くらいで説明して", "should_trigger": false},
+  {"query": "ブログのアイキャッチ画像に使う、猫の水彩画風イラストを作って", "should_trigger": false},
+  {"query": "この図解PNGの文字の誤字を直したい。元のHTMLはこれ", "should_trigger": true},
+  {"query": "会社のロゴを新しくデザインしたい", "should_trigger": false}
+]

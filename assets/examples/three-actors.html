@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="node_modules/@fontsource/kiwi-maru/500.css">
+<link rel="stylesheet" href="node_modules/@fontsource/yomogi/400.css">
+<script src="node_modules/roughjs/bundled/rough.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  #page { position: relative; width: 1600px; height: 900px; background: #FFFDF8; font-family: 'Kiwi Maru', sans-serif; color: #2A2A2A; overflow: hidden; }
+  #ink { position: absolute; inset: 0; z-index: 0; }
+  .layer { position: relative; z-index: 1; }
+  .abs { position: absolute; }
+  h1 { margin: 0; position: absolute; top: 26px; left: 0; right: 0; text-align: center; font-size: 54px; font-weight: 500; }
+  h1 .hl { background: linear-gradient(transparent 62%, #FFD36B 62%); padding: 0 6px; }
+  .head { position: absolute; top: 20px; left: 0; right: 0; text-align: center; font-size: 32px; }
+  .head small { font-size: 22px; color: #555; }
+  .e { position: absolute; display: block; }
+  .bubble { position: absolute; display: flex; align-items: center; justify-content: center; font-family: 'Yomogi', sans-serif; font-size: 30px; text-align: center; line-height: 1.2; }
+  .num { display: inline-flex; width: 40px; height: 40px; border-radius: 20px; background: #2A2A2A; color: #fff; font-size: 24px; align-items: center; justify-content: center; margin-right: 8px; vertical-align: 2px; }
+  .card { position: absolute; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: 10px 12px; }
+  .t { font-size: 28px; }
+  .t small { font-size: 22px; color: #555; }
+  .d { font-size: 22px; line-height: 1.4; color: #333; }
+  .alabel { position: absolute; width: 150px; text-align: center; font-size: 22px; line-height: 1.25; }
+  .box { position: absolute; top: 650px; height: 200px; padding: 18px 24px; display: flex; flex-direction: column; gap: 10px; }
+  .box .t { display: flex; align-items: center; gap: 10px; }
+</style>
+</head>
+<body>
+<div id="page">
+  <svg id="ink" width="1600" height="900"></svg>
+  <div class="layer">
+    <h1>API ＝ アプリ同士の<span class="hl">注文窓口</span></h1>
+
+    <!-- お客さん -->
+    <div class="abs" data-rough="panel" data-fill="#DCE8F7" style="left:40px; top:130px; width:400px; height:470px">
+      <div class="head">お客さん<small>（アプリ）</small></div>
+      <div class="bubble" data-rough="bubble" data-tail="down" style="left:150px; top:80px; width:220px; height:84px">カレー1つ！</div>
+      <span class="e" style="left:110px; top:200px">{{person-raising-hand:170}}</span>
+      <div class="card" data-rough="card" style="left:30px; top:385px; width:340px; height:66px"><div class="d">例：天気アプリ</div></div>
+    </div>
+
+    <!-- 店員 -->
+    <div class="abs" data-rough="panel" data-fill="#FFF1CC" style="left:600px; top:130px; width:400px; height:470px">
+      <div class="head">店員<small>（API）</small></div>
+      <span class="e" style="left:30px; top:100px">{{woman-tipping-hand:150}}</span>
+      <span class="e" style="left:215px; top:110px">{{scroll:90}}</span>
+      <div class="card" data-rough="card" style="left:190px; top:215px; width:180px; height:140px">
+        <div class="t">メニュー</div>
+        <div class="d">頼み方が<br>決まっている</div>
+      </div>
+      <div class="card" data-rough="card" style="left:30px; top:385px; width:340px; height:66px"><div class="d">例：気象会社のAPI</div></div>
+    </div>
+
+    <!-- 厨房 -->
+    <div class="abs" data-rough="panel" data-fill="#D8F0D3" style="left:1160px; top:130px; width:400px; height:470px">
+      <div class="head">厨房<small>（サーバー）</small></div>
+      <span class="e" style="left:40px; top:110px">{{man-cook:160}}</span>
+      <span class="e" style="left:220px; top:150px">{{shallow-pan-of-food:90}}</span>
+      <span class="e" style="left:300px; top:110px">{{gear:56}}</span>
+      <div class="card" data-rough="card" style="left:190px; top:260px; width:180px; height:96px">
+        <div class="d">作り方は<br>外から見えない</div>
+      </div>
+      <div class="card" data-rough="card" style="left:30px; top:385px; width:340px; height:66px"><div class="d">例：気象データの計算</div></div>
+    </div>
+
+    <!-- 行き：注文 -->
+    <div class="alabel" style="left:445px; top:220px"><span class="num">1</span>注文</div>
+    <div data-rough="arrow" data-dir="right" style="position:absolute; left:460px; top:265px; width:120px; height:40px"></div>
+    <div class="alabel" style="left:1005px; top:220px"><span class="num">2</span>伝える</div>
+    <div data-rough="arrow" data-dir="right" style="position:absolute; left:1020px; top:265px; width:120px; height:40px"></div>
+
+    <!-- 帰り：料理 -->
+    <div data-rough="arrow" data-dir="left" data-color="#2F7D32" style="position:absolute; left:1020px; top:400px; width:120px; height:40px"></div>
+    <div class="alabel" style="left:1005px; top:450px"><span class="num">3</span>料理</div>
+    <div data-rough="arrow" data-dir="left" data-color="#2F7D32" style="position:absolute; left:460px; top:400px; width:120px; height:40px"></div>
+    <div class="alabel" style="left:445px; top:450px"><span class="num">4</span>届く</div>
+
+    <!-- 補足帯 -->
+    <div class="box" data-rough="card" style="left:40px; width:490px">
+      <div class="t">{{scroll:40}}頼み方は決まっている</div>
+      <div class="d">メニューにない頼み方はできない。<br>決まった書き方で頼めば、<br>いつでも同じ形で返ってくる</div>
+    </div>
+    <div class="box" data-rough="card" style="left:555px; width:490px">
+      <div class="t">{{locked:40}}中身を知らなくていい</div>
+      <div class="d">厨房の作り方を知らなくても<br>料理は届く。お店側も<br>レシピを見せずに済む</div>
+    </div>
+    <div class="box" data-rough="card" data-fill="#FFF7E0" style="left:1070px; width:490px">
+      <div class="t">{{mobile-phone:40}}身近なAPIの例</div>
+      <div class="d">{{sun-behind-cloud:28}} 天気アプリの予報<br>{{world-map:28}} お店のサイトの地図<br>{{credit-card:28}} ネットショップの決済</div>
+    </div>
+  </div>
+</div>
+<script src="ink.js"></script>
+</body>
+</html>

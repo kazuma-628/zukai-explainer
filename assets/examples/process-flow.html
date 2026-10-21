@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="node_modules/@fontsource/kiwi-maru/500.css">
+<link rel="stylesheet" href="node_modules/@fontsource/yomogi/400.css">
+<script src="node_modules/roughjs/bundled/rough.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  #page { position: relative; width: 1600px; height: 900px; background: #FFFDF8; font-family: 'Kiwi Maru', sans-serif; color: #2A2A2A; overflow: hidden; }
+  #ink { position: absolute; inset: 0; z-index: 0; }
+  .layer { position: relative; z-index: 1; }
+  .abs { position: absolute; }
+  h1 { margin: 0; position: absolute; top: 26px; left: 0; right: 0; text-align: center; font-size: 54px; font-weight: 500; }
+  h1 .hl { background: linear-gradient(transparent 62%, #FFD36B 62%); padding: 0 6px; }
+  .head { position: absolute; top: 20px; left: 0; right: 0; text-align: center; font-size: 32px; }
+  .e { position: absolute; display: block; }
+  .bubble { position: absolute; display: flex; align-items: center; justify-content: center; font-family: 'Yomogi', sans-serif; font-size: 30px; text-align: center; line-height: 1.2; }
+  .num { display: inline-flex; width: 40px; height: 40px; border-radius: 20px; background: #2A2A2A; color: #fff; font-size: 24px; align-items: center; justify-content: center; margin-right: 8px; vertical-align: 2px; }
+  .card { position: absolute; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: 10px 12px; }
+  .card .t { font-size: 28px; }
+  .card .t small { font-size: 22px; color: #555; }
+  .card .d { font-size: 22px; line-height: 1.35; color: #333; }
+  .info { position: absolute; display: flex; gap: 14px; align-items: center; }
+  .info .t { font-size: 28px; }
+  .info .d { font-size: 21px; color: #444; line-height: 1.35; }
+  .box { position: absolute; top: 650px; height: 220px; padding: 20px 26px; display: flex; flex-direction: column; gap: 8px; }
+  .box .t { font-size: 26px; white-space: nowrap; }
+  .box .t b { font-weight: 500; font-size: 36px; margin-right: 10px; }
+  .box .d { font-size: 23px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div id="page">
+  <svg id="ink" width="1600" height="900"></svg>
+  <div class="layer">
+    <h1>GitLab CI/CD ＝ コードの<span class="hl">自動検品ライン</span></h1>
+
+    <!-- 開発者 -->
+    <div class="abs" data-rough="panel" data-fill="#DCE8F7" style="left:40px; top:120px; width:300px; height:500px">
+      <div class="head">開発者</div>
+      <div class="bubble" data-rough="bubble" data-tail="down" style="left:50px; top:80px; width:200px; height:84px">直したよ！</div>
+      <span class="e" style="left:70px; top:190px">{{man-technologist:160}}</span>
+      <div class="card" data-rough="card" data-fill="#FFFFFF" style="left:16px; top:350px; width:268px; height:130px">
+        <div class="t"><span class="num">1</span>コードを保存</div>
+        <div class="d">GitLabへ送る<br>（push）</div>
+      </div>
+    </div>
+
+    <!-- 自動スタート矢印 -->
+    <div data-rough="arrow" style="position:absolute; left:346px; top:400px; width:62px; height:60px"></div>
+    <div class="abs" style="left:330px; top:340px; width:100px; text-align:center; font-family:'Yomogi'; font-size:22px; line-height:1.2">自動で<br>開始</div>
+
+    <!-- 工場 -->
+    <div class="abs" data-rough="panel" data-fill="#FFF1CC" style="left:420px; top:120px; width:1140px; height:500px">
+      <div class="head" style="text-align:left; left:30px">{{factory:44}} GitLabの自動工場（パイプライン）</div>
+
+      <div class="info" style="left:40px; top:70px">
+        <span>{{clipboard:72}}</span>
+        <div><div class="t">作業指示書</div><div class="d">「.gitlab-ci.yml」に<br>何を・どの順でやるか書く</div></div>
+      </div>
+      <div class="info" style="left:560px; top:70px">
+        <span>{{robot:72}}</span>
+        <div><div class="t">Runner（ランナー）</div><div class="d">指示書どおりに<br>作業してくれるロボット</div></div>
+      </div>
+
+      <div class="card" data-rough="card" data-fill="#FFFFFF" style="left:40px; top:172px; width:300px; height:208px">
+        <span>{{hammer-and-wrench:52}}</span>
+        <div class="t"><span class="num">2</span>ビルド<small>（組み立て）</small></div>
+        <div class="d">動く形にまとめる</div>
+      </div>
+      <div data-rough="arrow" style="position:absolute; left:352px; top:255px; width:50px; height:50px"></div>
+      <div class="card" data-rough="card" data-fill="#FFFFFF" style="left:415px; top:172px; width:300px; height:208px">
+        <span>{{magnifying-glass-tilted-left:52}}</span>
+        <div class="t"><span class="num">3</span>テスト<small>（検品）</small></div>
+        <div class="d">壊れていないか<br>自動でチェック</div>
+      </div>
+      <div data-rough="arrow" style="position:absolute; left:727px; top:255px; width:50px; height:50px"></div>
+      <div class="card" data-rough="card" data-fill="#FFFFFF" style="left:790px; top:172px; width:310px; height:208px">
+        <span>{{delivery-truck:52}}</span>
+        <div class="t"><span class="num">4</span>デプロイ<small>（出荷）</small></div>
+        <div class="d">お客さまが使う<br>環境へ届ける</div>
+      </div>
+
+      <div data-rough="conveyor" style="position:absolute; left:30px; top:392px; width:1080px; height:10px"></div>
+
+      <div class="abs" data-rough="pill" data-fill="#FBDCD6" style="left:400px; top:430px; width:330px; height:50px; display:flex; align-items:center; justify-content:center; gap:8px; font-size:23px">
+        <span>{{cross-mark:30}}</span>不合格なら止めて通知<span>{{bell:30}}</span>
+      </div>
+      <div class="abs" data-rough="pill" data-fill="#D8F0D3" style="left:800px; top:430px; width:290px; height:50px; display:flex; align-items:center; justify-content:center; gap:8px; font-size:23px">
+        <span>{{check-mark-button:30}}</span>合格品だけが届く
+      </div>
+    </div>
+
+    <!-- 下段：用語とうれしいこと -->
+    <div class="box" data-rough="card" data-fill="#FFFFFF" style="left:40px; width:500px">
+      <div class="t"><b>CI</b>継続的インテグレーション</div>
+      <div class="d">{{counterclockwise-arrows-button:30}} 変更のたびに、自動で<br>「組み立て＋検品」をすること<br><span style="color:#555">（図の②③）</span></div>
+    </div>
+    <div class="box" data-rough="card" data-fill="#FFFFFF" style="left:570px; width:500px">
+      <div class="t"><b>CD</b>継続的デリバリー／デプロイ</div>
+      <div class="d">{{rocket:30}} 合格したものを、自動で<br>「出荷」まで進めること<br><span style="color:#555">（図の④）</span></div>
+    </div>
+    <div class="box" data-rough="card" data-fill="#FFF7E0" style="left:1100px; width:460px">
+      <div class="t">うれしいこと</div>
+      <div class="d">{{check-mark-button:28}} 人の手作業によるミスが減る<br>{{check-mark-button:28}} 不具合に早く気づける<br>{{check-mark-button:28}} 早く・何度でも届けられる</div>
+    </div>
+  </div>
+</div>
+
+<script src="ink.js"></script>
+</body>
+</html>
